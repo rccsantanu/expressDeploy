@@ -7,7 +7,7 @@ const mysql = require("mysql2");
 
 // connecting Database
 const connection = mysql.createPool({
-  host: "node-express-mysql-rds.ch4y4w6i2zyi.us-east-1.rds.amazonaws.com",
+  host: "mysqlforexpress.ch4y4w6i2zyi.us-east-1.rds.amazonaws.com",
   user: "admin",
   password: "Mypassword1234nodejs",
   database: "aws_basic_crud",
