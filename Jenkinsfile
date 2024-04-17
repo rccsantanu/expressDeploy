@@ -21,7 +21,7 @@ pipeline {
                 
                 // Execute any other deployment commands here
                 // For example, restart your Node.js application if needed
-                sh 'pm2 restart app' // Replace 'app' with your application name
+                sh 'pm2 restart 0' // Replace 'app' with your application name
             }
         }
     }
