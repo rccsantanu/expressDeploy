@@ -19,7 +19,7 @@ pipeline {
                 // Copy files to your server
                 // You can use SCP, SSH, or any other method to copy files to your server
                 // Example:
-                sh 'cp -r ./* /var/www/html/expressDeploy/'
+                sh 'sudo cp -r ./* /var/www/html/expressDeploy/'
                 sh 'pm2 restart 0'
             }
         }
