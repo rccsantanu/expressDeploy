@@ -6,23 +6,23 @@ pipeline {
                 sh 'npm install'
             }
         }
-
-        stage('Pull from GitHub') {
-            steps {
-                // Pull the latest changes from the GitHub repository
-                sh 'git pull origin master' // Replace 'master' with your branch name if different
-            }
-        }
         
         stage('Deploy') {
+            // Trigger the deployment stage only when changes are pushed to the repository
+            when {
+                changeset '.*'
+            }
             steps {
-                // Copy files to your server
-                // You can use SCP, SSH, or any other method to copy files to your server
-                // Example:
-                sh 'sudo -S cp -r ./* /var/www/html/expressDeploy/'
-                sh 'pm2 restart 0'
+                // Pull the latest changes from GitHub
+                sh 'git pull origin master' // Replace 'master' with your branch name if different
+                
+                // Install dependencies and build the project (if necessary)
+                sh 'npm install'
+                
+                // Execute any other deployment commands here
+                // For example, restart your Node.js application if needed
+                sh 'pm2 restart app' // Replace 'app' with your application name
             }
         }
-        
     }
 }
