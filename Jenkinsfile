@@ -19,7 +19,7 @@ pipeline {
                 // Copy files to your server
                 // You can use SCP, SSH, or any other method to copy files to your server
                 // Example:
-                sh 'scp -r ./* ubuntu@3.90.216.246://var/www/html/expressDeploy'
+                sh 'scp -r ./* ubuntu@ec2-3-90-216-246.compute-1.amazonaws.com:/var/www/html/expressDeploy'
             }
         }
         
