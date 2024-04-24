@@ -3,12 +3,12 @@ pipeline {
     
     stages {
 
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the Git repository
-                git branch: 'master',  url: 'https://github.com/rccsantanu/expressDeploy.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         // Checkout the code from the Git repository
+        //         git branch: 'master',  url: 'https://github.com/rccsantanu/expressDeploy.git'
+        //     }
+        // }
         
         
         stage('Build') {
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 // Execute deployment commands directly
                 // Replace 'your-deployment-command' with your actual deployment command
-                sh 'pm2 start index.js --name index'
+                //sh 'pm2 start index.js --name index'
                 sh 'pm2 restart index.js --name index'
             }
         }
