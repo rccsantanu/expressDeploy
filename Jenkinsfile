@@ -2,12 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
-            steps {
-                // SCM will handle the checkout based on the provided repository URL and branch
-                checkout scm
-            }
-        }
+        
         
         stage('Build') {
             steps {
@@ -19,15 +14,7 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            steps {
-                // Run tests (if applicable)
-                // Modify this step according to your testing framework
-                // For example:
-                // sh 'pytest' (for Python projects)
-                // sh 'rspec' (for Ruby projects)
-            }
-        }
+        
         
         stage('Deploy') {
             steps {
