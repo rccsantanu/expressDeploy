@@ -33,7 +33,7 @@ app.post("/users", async (req, res) => {
   }
 });
 
-app.get("/users", async (req, res) => {
+app.get("/getusers", async (req, res) => {
   try {
     const data = await connection.promise().query(`SELECT *  from user;`);
     res.status(200).json({
