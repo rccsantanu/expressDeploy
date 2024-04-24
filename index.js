@@ -47,6 +47,19 @@ app.get("/getusers", async (req, res) => {
   }
 });
 
+app.get("/about", async (req, res) => {
+  try{
+     res.status(200).json({
+      message: "this is about page",
+    });
+
+  }catch (err) {
+    res.status(500).json({
+      message: err,
+    });
+  }
+]);
+
 app.get("/user/:id", async (req, res) => {
   try {
     const { id } = req.params;
