@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Execute deployment commands directly
                 // Replace 'your-deployment-command' with your actual deployment command
-                sh 'pm2 restart 0'
+                sh 'pm2 restart index'
             }
         }
     }
