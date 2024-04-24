@@ -1,28 +1,51 @@
 pipeline {
     agent any
+    
     stages {
+        stage('Checkout') {
+            steps {
+                // SCM will handle the checkout based on the provided repository URL and branch
+                checkout scm
+            }
+        }
+        
         stage('Build') {
             steps {
-                sh 'npm install'
+                // If your project requires any build steps other than Maven,
+                // you can add them here.
+                // For example:
+                sh 'npm install' 
+                // sh 'make' (for projects using Makefile)
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Run tests (if applicable)
+                // Modify this step according to your testing framework
+                // For example:
+                // sh 'pytest' (for Python projects)
+                // sh 'rspec' (for Ruby projects)
             }
         }
         
         stage('Deploy') {
-            // Trigger the deployment stage only when changes are pushed to the repository
-            when {
-                changeset '.*'
-            }
             steps {
-                // Pull the latest changes from GitHub
-                sh 'git pull origin master' // Replace 'master' with your branch name if different
-                
-                // Install dependencies and build the project (if necessary)
-                sh 'npm install'
-                
-                // Execute any other deployment commands here
-                // For example, restart your Node.js application if needed
-                sh 'pm2 restart 0' // Replace 'app' with your application name
+                // Execute deployment commands directly
+                // Replace 'your-deployment-command' with your actual deployment command
+                sh 'pm2 restart index.js'
             }
+        }
+    }
+    
+    post {
+        success {
+            // If the pipeline runs successfully, notify users or perform additional actions
+            echo 'Deployment successful!'
+        }
+        failure {
+            // If the pipeline fails, notify users or perform cleanup actions
+            echo 'Deployment failed!'
         }
     }
 }
