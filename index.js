@@ -37,7 +37,7 @@ app.get("/users", async (req, res) => {
   try {
     const data = await connection.promise().query(`SELECT *  from user;`);
     res.status(200).json({
-      message: "Data retrieved successfully sayan",
+      message: "Data retrieved successfully finally",
       users: data[0],
     });
   } catch (err) {
