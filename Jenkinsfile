@@ -9,6 +9,12 @@ pipeline {
                 git branch: 'master',  url: 'https://github.com/rccsantanu/expressDeploy.git'
             }
         }
+
+        stage('Copy Project'){
+            steps{
+                sh 'cp -rf . /var/www/html/expressDeploy/'
+            }
+        }
         
         
         stage('Build') {
