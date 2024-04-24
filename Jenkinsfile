@@ -2,6 +2,13 @@ pipeline {
     agent any
     
     stages {
+
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the Git repository
+                git branch: 'master',  url: 'https://github.com/rccsantanu/expressDeploy.git'
+            }
+        }
         
         
         stage('Build') {
