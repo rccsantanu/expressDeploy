@@ -18,7 +18,7 @@ const connection = mysql.createPool({
 app.get("/about", async (req, res) => {
   try {
     res.status(200).json({
-      message: "this is about page - 15",
+      message: "this is about page - 16",
     });
   } catch (err) {
     res.status(500).json({
