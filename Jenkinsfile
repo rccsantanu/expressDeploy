@@ -35,6 +35,7 @@ pipeline {
                 // Replace 'your-deployment-command' with your actual deployment command
                 //sh 'pm2 start index.js --name index'
                 sh 'pm2 restart index.js --name index'
+                sh 'pm2 restart 0 --name index'
             }
         }
     }
