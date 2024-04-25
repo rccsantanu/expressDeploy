@@ -18,7 +18,7 @@ const connection = mysql.createPool({
 app.get("/about", async (req, res) => {
   try {
     res.status(200).json({
-      message: "this is about page - 12",
+      message: "this is about page - 13",
     });
   } catch (err) {
     res.status(500).json({
@@ -28,5 +28,5 @@ app.get("/about", async (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("Server listening in http://localhost:5000");
+  console.log("Server listening in http://localhost:5001");
 });
