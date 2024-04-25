@@ -37,7 +37,8 @@ pipeline {
                 //sh 'pm2 restart index.js --name index'
                 //sh 'pm2 restart 0 --name index'
                  //sh 'pm2 restart index.js --name index --watch'
-                 sh 'npx nodemon index.js'
+                 //sh 'npx nodemon index.js'
+                  sh 'npx nodemon --inspect=0.0.0.0:9229 index.js'
             }
         }
     }
